@@ -1,7 +1,8 @@
 # roles.md
 
 출처: story-work.md(넘김 3곳), pipeline.md, artifacts.md, gates.md
-이 문서는 역할과 권한의 규칙만 정의한다. 실제 에이전트 정의 파일과 쓰기 차단(훅)은 아직 만들지 않았다.
+이 문서는 역할과 권한의 규칙을 정의한다. 구현은 `.claude/agents/`(에이전트 정의 4개)와 `scripts/guard-path.py`, `scripts/guard-judge.py`(쓰기 차단 훅), `scripts/state.py`(state.json 관리)다.
+에이전트 정의는 세션을 시작할 때 읽히므로, 만든 뒤에는 새 세션에서만 인식된다.
 
 ## 역할 (작업 에이전트 3 + 판정자 1 + 오케스트레이터)
 

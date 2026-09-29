@@ -1,0 +1,42 @@
+{
+  "screen": "home",
+  "current_stage": "S1",
+  "waiting_for": "하이서 답변 (질문 6개)",
+  "s3_approved": false,
+  "stages": {
+    "S1": {
+      "status": "waiting_human",
+      "failures": 0
+    },
+    "S2": {
+      "status": "pending",
+      "failures": 0
+    },
+    "S3": {
+      "status": "pending",
+      "failures": 0
+    },
+    "S4": {
+      "status": "pending",
+      "failures": 0
+    },
+    "S5": {
+      "status": "pending",
+      "failures": 0
+    }
+  },
+  "log": [
+    {
+      "time": "2026-09-29T22:36:20+09:00",
+      "event": "init"
+    },
+    {
+      "time": "2026-09-29T22:36:20+09:00",
+      "event": "start S1"
+    },
+    {
+      "time": "2026-09-29T22:37:51+09:00",
+      "event": "wait S1: 하이서 답변 (질문 6개)"
+    }
+  ]
+}
