@@ -39,6 +39,7 @@ Source pages: home, pricing, awards, signup.
 - **Soft Ink** (`{colors.ink-soft}` — #262626): Slightly lifted dark used for secondary lockups and the awards wordmark.
 - **Muted** (`{colors.text-muted}` — #707070): Secondary copy — supporting paragraphs, plan descriptions, vote counts, underlined inline links.
 - **Faint** (`{colors.text-faint}` — #adadad): Tertiary text — placeholders, de-emphasized footer links, fine print.
+- **On Primary** (`{colors.on-primary}` — #ffffff): Text and icons placed on `{colors.primary}` / `{colors.ink}` fills — primary CTA labels, footer wordmark, overlay captions, and the label on the `{colors.accent}` badge.
 
 ### Semantic
 
@@ -259,7 +260,7 @@ The system is essentially shadow-free: no drop shadows appear on any card, butto
 
 - Properties: `backgroundColor`, `textColor`, `borderColor`, `rounded`, `padding`
 
-**`ex-pricing-tier-featured`** — Featured/highlighted tier — polarity-flipped surface (dark fill + light text in light mode, light fill + dark text in dark mode).
+**`ex-pricing-tier-featured`** — Featured/highlighted tier — `{colors.canvas-soft}` fill, borderless, `{colors.ink}` text; emphasis by tint, not by polarity flip (same as `pricing-card-featured`).
 
 - Properties: `backgroundColor`, `textColor`, `rounded`, `padding`
 
@@ -283,7 +284,7 @@ The system is essentially shadow-free: no drop shadows appear on any card, butto
 
 - Properties: `backgroundColor`, `rounded`, `padding`
 
-**`ex-modal-card`** — Modal dialog surface — same chrome as feature-card with elevated shadow.
+**`ex-modal-card`** — Modal dialog surface — same chrome as feature-card, no shadow; separated from the page by a 1px `{colors.hairline-soft}` outline on the `{colors.canvas}` fill.
 
 - Properties: `backgroundColor`, `rounded`, `padding`
 
@@ -291,7 +292,7 @@ The system is essentially shadow-free: no drop shadows appear on any card, butto
 
 - Properties: `backgroundColor`, `rounded`, `padding`, `captionTypography`
 
-**`ex-toast`** — Toast notification surface — feature-card shape + medium shadow.
+**`ex-toast`** — Toast notification surface — feature-card shape, no shadow; `{colors.canvas-soft}` fill with a 1px `{colors.hairline}` outline.
 
 - Properties: `backgroundColor`, `rounded`, `padding`, `typography`
 

@@ -1,0 +1,290 @@
+{
+  "screen": "my-assets",
+  "frames": [
+    {
+      "id": "f1",
+      "direction": 1,
+      "viewer_role": "seller",
+      "flow": "asset-register",
+      "nodes": [
+        {
+          "id": "f1-cta",
+          "type": "button",
+          "role": "button-primary",
+          "fills": [
+            "#141414"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full",
+          "padding": [
+            0,
+            16
+          ],
+          "font": {
+            "family": "Pretendard",
+            "weight": 600
+          }
+        },
+        {
+          "id": "f1-input",
+          "type": "input",
+          "fills": [
+            "#f0f0f0"
+          ],
+          "radius": 16,
+          "padding": [
+            12,
+            16
+          ],
+          "textColor": "#141414",
+          "font": {
+            "family": "Pretendard",
+            "weight": 400
+          }
+        },
+        {
+          "id": "f1-card",
+          "type": "card",
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "radius": 24,
+          "padding": 24,
+          "gap": 8
+        },
+        {
+          "id": "f1-vis",
+          "type": "option-group",
+          "group": "visibility",
+          "default": "비공개",
+          "options": [
+            "비공개",
+            "멤버 공개",
+            "판매 신청"
+          ]
+        },
+        {
+          "id": "f1-sale",
+          "type": "option",
+          "role": "sale-request-option",
+          "text": "판매 신청"
+        },
+        {
+          "id": "f1-c1",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "개인정보와 고객정보가 포함되어 있지 않습니다"
+        },
+        {
+          "id": "f1-c2",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "회사기밀과 타인의 저작권을 침해하지 않습니다"
+        },
+        {
+          "id": "f1-badge",
+          "type": "badge",
+          "role": "badge-popular",
+          "fills": [
+            "#0066ff"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full"
+        }
+      ]
+    },
+    {
+      "id": "f2",
+      "direction": 2,
+      "viewer_role": "seller",
+      "flow": "asset-register",
+      "nodes": [
+        {
+          "id": "f2-cta",
+          "type": "button",
+          "role": "button-primary",
+          "fills": [
+            "#141414"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full",
+          "padding": [
+            0,
+            16
+          ],
+          "font": {
+            "family": "Pretendard",
+            "weight": 600
+          }
+        },
+        {
+          "id": "f2-input",
+          "type": "input",
+          "fills": [
+            "#f0f0f0"
+          ],
+          "radius": 16,
+          "padding": [
+            12,
+            16
+          ],
+          "textColor": "#141414",
+          "font": {
+            "family": "Pretendard",
+            "weight": 400
+          }
+        },
+        {
+          "id": "f2-card",
+          "type": "card",
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "radius": 24,
+          "padding": 24,
+          "gap": 8
+        },
+        {
+          "id": "f2-vis",
+          "type": "option-group",
+          "group": "visibility",
+          "default": "비공개",
+          "options": [
+            "비공개",
+            "멤버 공개",
+            "판매 신청"
+          ]
+        },
+        {
+          "id": "f2-sale",
+          "type": "option",
+          "role": "sale-request-option",
+          "text": "판매 신청"
+        },
+        {
+          "id": "f2-c1",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "개인정보와 고객정보가 포함되어 있지 않습니다"
+        },
+        {
+          "id": "f2-c2",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "회사기밀과 타인의 저작권을 침해하지 않습니다"
+        },
+        {
+          "id": "f2-badge",
+          "type": "badge",
+          "role": "badge-popular",
+          "fills": [
+            "#0066ff"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full"
+        }
+      ]
+    },
+    {
+      "id": "f3",
+      "direction": 3,
+      "viewer_role": "seller",
+      "flow": "asset-register",
+      "nodes": [
+        {
+          "id": "f3-cta",
+          "type": "button",
+          "role": "button-primary",
+          "fills": [
+            "#141414"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full",
+          "padding": [
+            0,
+            16
+          ],
+          "font": {
+            "family": "Pretendard",
+            "weight": 600
+          }
+        },
+        {
+          "id": "f3-input",
+          "type": "input",
+          "fills": [
+            "#f0f0f0"
+          ],
+          "radius": 16,
+          "padding": [
+            12,
+            16
+          ],
+          "textColor": "#141414",
+          "font": {
+            "family": "Pretendard",
+            "weight": 400
+          }
+        },
+        {
+          "id": "f3-card",
+          "type": "card",
+          "fills": [
+            "#ffffff"
+          ],
+          "strokes": [
+            "#f0f0f0"
+          ],
+          "radius": 24,
+          "padding": 24,
+          "gap": 8
+        },
+        {
+          "id": "f3-vis",
+          "type": "option-group",
+          "group": "visibility",
+          "default": "비공개",
+          "options": [
+            "비공개",
+            "멤버 공개",
+            "판매 신청"
+          ]
+        },
+        {
+          "id": "f3-sale",
+          "type": "option",
+          "role": "sale-request-option",
+          "text": "판매 신청"
+        },
+        {
+          "id": "f3-c1",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "개인정보와 고객정보가 포함되어 있지 않습니다"
+        },
+        {
+          "id": "f3-c2",
+          "type": "checkbox",
+          "role": "confirm-item",
+          "text": "회사기밀과 타인의 저작권을 침해하지 않습니다"
+        },
+        {
+          "id": "f3-badge",
+          "type": "badge",
+          "role": "badge-popular",
+          "fills": [
+            "#0066ff"
+          ],
+          "textColor": "#ffffff",
+          "radius": "full"
+        }
+      ]
+    }
+  ]
+}
