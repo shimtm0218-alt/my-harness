@@ -1,4 +1,4 @@
-# workflow-service.md
+# story-work.md
 
 "내가 실제로 어떻게 작업했는지"의 기록. 서비스: 허들링 앱(`prd.md`).
 `story-service.md`(무엇을 위한 일인지)와는 다른 문서이며, 내용을 섞지 않는다.
