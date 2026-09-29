@@ -1,28 +1,28 @@
 {
   "screen": "home",
-  "current_stage": "S1",
-  "waiting_for": "하이서 답변 (질문 6개)",
-  "s3_approved": false,
+  "current_stage": "S5",
+  "waiting_for": null,
+  "s3_approved": true,
   "stages": {
     "S1": {
-      "status": "waiting_human",
-      "failures": 0
+      "status": "passed",
+      "failures": 1
     },
     "S2": {
-      "status": "pending",
+      "status": "passed",
       "failures": 0
     },
     "S3": {
-      "status": "pending",
+      "status": "passed",
       "failures": 0
     },
     "S4": {
-      "status": "pending",
+      "status": "passed",
       "failures": 0
     },
     "S5": {
-      "status": "pending",
-      "failures": 0
+      "status": "passed",
+      "failures": 1
     }
   },
   "log": [
@@ -37,6 +37,66 @@
     {
       "time": "2026-09-29T22:37:51+09:00",
       "event": "wait S1: 하이서 답변 (질문 6개)"
+    },
+    {
+      "time": "2026-09-29T22:41:33+09:00",
+      "event": "start S1"
+    },
+    {
+      "time": "2026-09-29T22:43:41+09:00",
+      "event": "fail S1 -> S1: G1 실패: 답변이 빈 질문 3개(7,8,9)"
+    },
+    {
+      "time": "2026-09-29T22:43:41+09:00",
+      "event": "start S1"
+    },
+    {
+      "time": "2026-09-29T22:47:52+09:00",
+      "event": "pass S1"
+    },
+    {
+      "time": "2026-09-29T22:47:52+09:00",
+      "event": "start S2"
+    },
+    {
+      "time": "2026-09-29T22:50:47+09:00",
+      "event": "pass S2"
+    },
+    {
+      "time": "2026-09-29T22:50:47+09:00",
+      "event": "start S3"
+    },
+    {
+      "time": "2026-09-29T22:52:54+09:00",
+      "event": "pass S3"
+    },
+    {
+      "time": "2026-09-29T22:52:54+09:00",
+      "event": "approve S3: 위임 승인: 사용자가 '기본값으로 모두 진행'이라고 지시함. 사람이 방향 3개를 직접 검토한 승인이 아님"
+    },
+    {
+      "time": "2026-09-29T22:52:54+09:00",
+      "event": "start S4"
+    },
+    {
+      "time": "2026-09-29T23:02:17+09:00",
+      "event": "pass S4"
+    },
+    {
+      "time": "2026-09-29T23:02:17+09:00",
+      "event": "start S5"
+    },
+    {
+      "time": "2026-09-29T23:07:18+09:00",
+      "event": "fail S5 -> S5: G6 통과. judge 참고 대조에서 사실 오류 3건(4.46:1 방향 귀속, 섹션 제목 개수, 출처 없는 관찰) 발견 → 정정 재실행"
+    },
+    {
+      "time": "2026-09-29T23:07:18+09:00",
+      "event": "start S5"
+    },
+    {
+      "time": "2026-09-29T23:09:09+09:00",
+      "event": "pass S5"
     }
   ]
 }

@@ -22,7 +22,7 @@
 - 게이트 G1~G6의 조건을 세는 스크립트를 실행하고 결과를 읽는다. 산출물을 수정하지 않는다.
 - Figma는 조회만 한다.
 - 결과는 화면에 출력한다. state.json에 기록하는 것은 오케스트레이터다.
-- G4·G5는 `python3 scripts/judge.py <frames.json>`으로 판정한다. G1~G3, G6 판정 스크립트는 아직 없다(verification.md).
+- G4·G5는 `python3 scripts/judge.py <frames.json>`, G1·G2·G3·G6은 `python3 scripts/judge_md.py <게이트> <파일>`로 판정한다.
 - 판정 입력(frames.json)은 designer(S4)와 reviewer(S5)가 자기 폴더에 쓴다. judge는 읽기만 한다.
 
 ## 화면 이름 → 폴더 이름

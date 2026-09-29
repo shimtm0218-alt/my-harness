@@ -66,6 +66,7 @@ def bash(cmd):
 
 
 check("judge가 judge.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge.py work/home/design/frames.json")) == 0)
+check("judge가 judge_md.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge_md.py G1 work/home/research/01-scope.md")) == 0)
 check("judge가 옵션 붙여 실행 허용",
       hook("guard-judge.py", [], bash("python3 scripts/judge.py work/home/review/frames.json --gate G4 --expect-directions 1")) == 0)
 for label, cmd in [("rm", "rm -rf work"), ("리다이렉트", "python3 scripts/judge.py x.json > out.txt"),

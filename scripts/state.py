@@ -133,7 +133,7 @@ def cmd_approve(a, st):
     if st["stages"]["S3"]["status"] != "passed":
         raise Rule("S3가 passed가 아니다. G3를 통과한 뒤에만 승인할 수 있다")
     st["s3_approved"], st["waiting_for"] = True, None
-    log(st, "approve S3")
+    log(st, "approve S3" + (f": {a.reason}" if a.reason else ""))
 
 
 def main(argv=None):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""PreToolUse 훅(judge용): Bash로는 판정 스크립트만 실행할 수 있다. 그 밖의 명령은 종료 코드 2로 차단한다.
+"""PreToolUse 훅(judge용): Bash로는 판정 스크립트(judge.py, judge_md.py)만 실행할 수 있다. 그 밖의 명령은 종료 코드 2로 차단한다.
 
 판정자는 읽기 전용이다. 리다이렉트·파이프·명령 연결·치환을 쓰면 파일을 쓸 수 있으므로 모두 막는다.
 """
@@ -7,7 +7,7 @@ import json
 import re
 import sys
 
-ALLOWED = re.compile(r"^python3 scripts/judge\.py [A-Za-z0-9_./\-]+( --[a-z\-]+( [A-Za-z0-9_./\-]+)?)*$")
+ALLOWED = re.compile(r"^python3 scripts/(judge|judge_md)\.py( [A-Za-z0-9_./\-]+| --[a-z\-]+)+$")
 
 
 def block(msg):
