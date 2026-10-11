@@ -2,16 +2,15 @@
 """PreToolUse 훅: 에이전트가 자기 편집 폴더 밖에 쓰지 못하게 막는다.
 
 사용 (에이전트 정의의 hooks에서):  python3 scripts/guard-path.py <research|design|review>
-허용: <프로젝트>/work/<화면 10개 중 하나>/<폴더>/ 아래. 그 밖은 종료 코드 2로 차단한다.
+허용: <프로젝트>/work/<화면 이름>/<폴더>/ 아래. 그 밖은 종료 코드 2로 차단한다.
 입력을 읽지 못하거나 경로를 알 수 없으면 차단한다(통과가 기본이 아니다).
 """
+import re
 import json
 import os
 import sys
 from pathlib import Path
 
-SCREENS = {"home", "free-learning", "paid-library", "skill-library", "mission-detail",
-           "submission", "my-learning", "my-assets", "asset-detail", "admin-review"}
 FOLDERS = {"research", "design", "review"}
 
 
@@ -46,7 +45,7 @@ def main():
     except ValueError:
         block(f"{target} 은(는) work/ 밖이다. 이 에이전트는 work/<화면>/{folder}/ 에만 쓸 수 있다")
 
-    if len(parts) >= 3 and parts[0] in SCREENS and parts[1] == folder:
+    if len(parts) >= 3 and re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", parts[0]) and parts[1] == folder:
         sys.exit(0)
     block(f"{'/'.join(parts)} 은(는) 허용 밖이다. 이 에이전트는 work/<화면>/{folder}/ 에만 쓸 수 있다")
 

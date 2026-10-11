@@ -6,9 +6,7 @@
 
 `my-harness/work/<화면 영문 이름>/` 화면 1개당 폴더 1개.
 
-화면 영문 이름 (10개 고정, PRD 16절):
-home, free-learning, paid-library, skill-library, mission-detail,
-submission, my-learning, my-assets, asset-detail, admin-review
+화면 영문 이름은 영문 소문자·숫자·하이픈으로 지정한다. 고정 목록은 없다.
 
 ## 단계별 파일
 
@@ -30,9 +28,9 @@ Figma 시안은 Figma 파일 안에 있고, md에는 URL과 프레임 ID만 기�
 ## 규칙 SSOT
 
 - 시각 규칙의 단일 기준은 design.md 하나다.
-- 판정 스크립트는 design.md에서 허용 색·radius·spacing을 직접 읽는다.
+- 판정 스크립트는 design.md의 JSON 설정에서 프로젝트별 시각 규칙을 읽는다.
   rules.json 같은 복사본은 만들지 않는다.
-- 프로젝트별 금지 규칙은 gates.md의 G5 표에 쓴다. story-service.md의 "어기면 안 되는 것"은 하네스 공통 규칙이다.
+- 프로젝트별 금지 규칙과 수동 검토 근거는 gates.md의 G5 안내와 frames.json의 policy_checks 형식을 따른다. story-service.md의 "어기면 안 되는 것"은 하네스 공통 규칙이다.
 
 ## 재개
 

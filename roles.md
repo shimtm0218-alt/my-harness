@@ -27,18 +27,8 @@
 
 ## 화면 이름 → 폴더 이름
 
-| 화면 | 폴더 |
-| --- | --- |
-| 홈 | home |
-| 무료 학습자료 | free-learning |
-| 유료 멤버 자료실 | paid-library |
-| 스킬 라이브러리 | skill-library |
-| 미션 상세 | mission-detail |
-| 제출 화면 | submission |
-| 내 학습 | my-learning |
-| 내 자산 | my-assets |
-| 자산 상세 | asset-detail |
-| 운영자 검수 화면 | admin-review |
+프로젝트가 지정한 화면 이름을 영문 소문자·숫자·하이픈으로 정한다.
+고정된 화면 목록은 없다. 같은 이름의 기존 작업이 있으면 새 프로젝트 접두어를 붙인다.
 
 ## 자연어 트리거 (4개)
 

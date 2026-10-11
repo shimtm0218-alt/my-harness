@@ -28,31 +28,31 @@ def write_to(path):
 
 # ---- guard-path
 W = ROOT / "work"
-check("research가 research/ 안에 쓰기 허용", hook("guard-path.py", ["research"], write_to(W / "home/research/01-scope.md")) == 0)
-check("research가 attempt-1/ 안에 쓰기 허용", hook("guard-path.py", ["research"], write_to(W / "home/research/attempt-1/x.md")) == 0)
-check("research가 design/ 에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "home/design/04-figma.md")) == 2)
-check("research가 다른 화면의 research/ 도 화면 이름이 맞으면 허용", hook("guard-path.py", ["research"], write_to(W / "my-assets/research/x.md")) == 0)
-check("research가 없는 화면 폴더에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "nowhere/research/x.md")) == 2)
-check("research가 state.json에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "home/state.json")) == 2)
+check("research가 research/ 안에 쓰기 허용", hook("guard-path.py", ["research"], write_to(W / "collection-panel/research/01-scope.md")) == 0)
+check("research가 attempt-1/ 안에 쓰기 허용", hook("guard-path.py", ["research"], write_to(W / "collection-panel/research/attempt-1/x.md")) == 0)
+check("research가 design/ 에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "collection-panel/design/04-figma.md")) == 2)
+check("research가 다른 화면의 research/ 도 화면 이름이 맞으면 허용", hook("guard-path.py", ["research"], write_to(W / "store-header/research/x.md")) == 0)
+check("research가 잘못된 화면 이름에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "Invalid_Name/research/x.md")) == 2)
+check("research가 state.json에 쓰기 차단", hook("guard-path.py", ["research"], write_to(W / "collection-panel/state.json")) == 2)
 check("research가 design.md에 쓰기 차단", hook("guard-path.py", ["research"], write_to(ROOT / "design.md")) == 2)
 check("research가 scripts/에 쓰기 차단", hook("guard-path.py", ["research"], write_to(ROOT / "scripts/judge.py")) == 2)
-check("designer가 design/ 안에 쓰기 허용", hook("guard-path.py", ["design"], write_to(W / "home/design/frames.json")) == 0)
-check("designer가 research/ 에 쓰기 차단", hook("guard-path.py", ["design"], write_to(W / "home/research/01-scope.md")) == 2)
-check("reviewer가 review/ 안에 쓰기 허용", hook("guard-path.py", ["review"], write_to(W / "home/review/05-final.md")) == 0)
-check("reviewer가 design/ 에 쓰기 차단", hook("guard-path.py", ["review"], write_to(W / "home/design/frames.json")) == 2)
-check("..로 우회 시도 차단", hook("guard-path.py", ["research"], write_to(W / "home/research/../design/04-figma.md")) == 2)
+check("designer가 design/ 안에 쓰기 허용", hook("guard-path.py", ["design"], write_to(W / "collection-panel/design/frames.json")) == 0)
+check("designer가 research/ 에 쓰기 차단", hook("guard-path.py", ["design"], write_to(W / "collection-panel/research/01-scope.md")) == 2)
+check("reviewer가 review/ 안에 쓰기 허용", hook("guard-path.py", ["review"], write_to(W / "collection-panel/review/05-final.md")) == 0)
+check("reviewer가 design/ 에 쓰기 차단", hook("guard-path.py", ["review"], write_to(W / "collection-panel/design/frames.json")) == 2)
+check("..로 우회 시도 차단", hook("guard-path.py", ["research"], write_to(W / "collection-panel/research/../design/04-figma.md")) == 2)
 check("상대 경로도 판정한다(cwd 기준)",
-      hook("guard-path.py", ["research"], {"tool_input": {"file_path": "work/home/research/01-scope.md"}, "cwd": str(ROOT)}) == 0)
+      hook("guard-path.py", ["research"], {"tool_input": {"file_path": "work/collection-panel/research/01-scope.md"}, "cwd": str(ROOT)}) == 0)
 check("상대 경로 우회도 차단",
-      hook("guard-path.py", ["research"], {"tool_input": {"file_path": "work/home/design/x.md"}, "cwd": str(ROOT)}) == 2)
+      hook("guard-path.py", ["research"], {"tool_input": {"file_path": "work/collection-panel/design/x.md"}, "cwd": str(ROOT)}) == 2)
 check("경로가 없으면 차단(fail closed)", hook("guard-path.py", ["research"], {"tool_input": {}}) == 2)
 check("JSON이 아니면 차단(fail closed)", hook("guard-path.py", ["research"], None, raw="이건 json이 아님") == 2)
-check("폴더 인자가 잘못되면 차단", hook("guard-path.py", ["hack"], write_to(W / "home/research/x.md")) == 2)
+check("폴더 인자가 잘못되면 차단", hook("guard-path.py", ["hack"], write_to(W / "collection-panel/research/x.md")) == 2)
 
 with tempfile.TemporaryDirectory() as d:
-    (Path(d) / "work/home/research").mkdir(parents=True)
-    (Path(d) / "work/home/design").mkdir(parents=True)
-    link = Path(d) / "work/home/research/link"
+    (Path(d) / "work/collection-panel/research").mkdir(parents=True)
+    (Path(d) / "work/collection-panel/design").mkdir(parents=True)
+    link = Path(d) / "work/collection-panel/research/link"
     try:
         link.symlink_to(ROOT / "design.md")
         r = hook("guard-path.py", ["research"], write_to(link))
@@ -65,13 +65,13 @@ def bash(cmd):
     return {"tool_name": "Bash", "tool_input": {"command": cmd}}
 
 
-check("judge가 judge.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge.py work/home/design/frames.json")) == 0)
-check("judge가 judge_md.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge_md.py G1 work/home/research/01-scope.md")) == 0)
+check("judge가 judge.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge.py work/collection-panel/design/frames.json")) == 0)
+check("judge가 judge_md.py 실행 허용", hook("guard-judge.py", [], bash("python3 scripts/judge_md.py G1 work/collection-panel/research/01-scope.md")) == 0)
 check("judge가 옵션 붙여 실행 허용",
-      hook("guard-judge.py", [], bash("python3 scripts/judge.py work/home/review/frames.json --gate G4 --expect-directions 1")) == 0)
+      hook("guard-judge.py", [], bash("python3 scripts/judge.py work/collection-panel/review/frames.json --gate G4 --expect-directions 1")) == 0)
 for label, cmd in [("rm", "rm -rf work"), ("리다이렉트", "python3 scripts/judge.py x.json > out.txt"),
                    ("명령 연결", "python3 scripts/judge.py x.json; rm -rf work"), ("파이프", "python3 scripts/judge.py x.json | tee y"),
-                   ("명령 치환", "python3 scripts/judge.py $(rm x)"), ("다른 스크립트", "python3 scripts/state.py pass S1 --screen home"),
+                   ("명령 치환", "python3 scripts/judge.py $(rm x)"), ("다른 스크립트", "python3 scripts/state.py pass S1 --screen collection-panel"),
                    ("cat", "cat design.md"), ("빈 명령", "")]:
     check(f"judge의 {label} 차단", hook("guard-judge.py", [], bash(cmd)) == 2)
 
@@ -82,10 +82,10 @@ def st(*args, work):
 
 
 with tempfile.TemporaryDirectory() as w:
-    S = lambda *a: st(*a, "--screen", "home", work=w)
-    check("init 성공", st("init", "home", work=w)[0] == 0)
-    check("init 중복 거부", st("init", "home", work=w)[0] == 1)
-    check("잘못된 화면 이름 거부", st("init", "nowhere", work=w)[0] == 1)
+    S = lambda *a: st(*a, "--screen", "collection-panel", work=w)
+    check("init 성공", st("init", "collection-panel", work=w)[0] == 0)
+    check("init 중복 거부", st("init", "collection-panel", work=w)[0] == 1)
+    check("잘못된 화면 이름 거부", st("init", "../outside", work=w)[0] == 1)
     check("S2를 S1 전에 시작하면 거부", S("start", "S2")[0] == 1)
     check("S1 시작", S("start", "S1")[0] == 0)
     check("S1을 running에서 다시 시작하면 거부", S("start", "S1")[0] == 1)
@@ -109,8 +109,8 @@ with tempfile.TemporaryDirectory() as w:
     check("halted 상태가 기록됨", state["stages"]["S4"]["status"] == "halted" and state["stages"]["S4"]["failures"] == 3)
 
 with tempfile.TemporaryDirectory() as w:
-    S = lambda *a: st(*a, "--screen", "home", work=w)
-    st("init", "home", work=w)
+    S = lambda *a: st(*a, "--screen", "collection-panel", work=w)
+    st("init", "collection-panel", work=w)
     for s in ("S1", "S2", "S3"):
         S("start", s)
         S("pass", s)

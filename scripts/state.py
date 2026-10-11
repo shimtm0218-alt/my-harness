@@ -13,6 +13,7 @@
 종료 코드: 0 성공 / 1 규칙 위반 / 3 halted(사람을 불러야 함)
 """
 import argparse
+import re
 import json
 import sys
 from datetime import datetime
@@ -20,8 +21,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 STAGES = ["S1", "S2", "S3", "S4", "S5"]
-SCREENS = {"home", "free-learning", "paid-library", "skill-library", "mission-detail",
-           "submission", "my-learning", "my-assets", "asset-detail", "admin-review"}
 MAX_FAILURES = 3
 
 
@@ -149,13 +148,13 @@ def main(argv=None):
     try:
         if a.command == "init":
             a.screen = a.target
-            if a.screen not in SCREENS:
-                raise Rule(f"화면은 {sorted(SCREENS)} 중 하나여야 한다")
+            if not a.screen or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", a.screen):
+                raise Rule("화면 이름은 영문 소문자·숫자·하이픈으로 작성한다")
             cmd_init(a)
             print(f"init {a.screen}")
             return 0
-        if not a.screen:
-            raise Rule("--screen 이 필요하다")
+        if not a.screen or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", a.screen):
+            raise Rule("유효한 --screen 이 필요하다")
         st = load(a.work_dir, a.screen)
         if a.command == "show":
             print(json.dumps(st, ensure_ascii=False, indent=2))
