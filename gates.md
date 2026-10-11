@@ -1,6 +1,6 @@
 # gates.md
 
-출처: story-work.md(멈칫 3곳), story-service.md(금지 규칙), design.md(규칙 SSOT), pipeline.md, artifacts.md
+출처: story-work.md(멈칫 3곳), story-service.md(어기면 안 되는 것), 프로젝트 금지 규칙(G5), design.md(규칙 SSOT), pipeline.md, artifacts.md
 판정은 스크립트가 셀 수 있는 조건만 쓴다. 판정자는 산출물을 수정하지 않는다.
 
 ## 게이트
@@ -28,15 +28,18 @@ G4·G5는 `scripts/judge.py`(입력 형식: scripts/README-judge.md), G1·G2·G3
 | 폰트 | Pretendard 밖, 또는 weight 300/400/600/700 밖 |
 | 그림자 | drop shadow (예외: segmented control의 활성 세그먼트 1곳) |
 
-## G5: story-service.md 금지 규칙 위반
+## G5: 프로젝트 금지 규칙 위반
 
-적용 화면: my-assets, asset-detail, admin-review, submission. 그 외 화면은 "해당 없음"으로 통과.
+아래 표는 **예시 프로젝트(콘텐츠·자산 판매 서비스)의 금지 규칙**이다. 프로젝트마다 이 표와 적용 화면을 바꿔서 쓴다.
+story-service.md의 "어기면 안 되는 것"은 모든 프로젝트에 공통인 하네스 규칙이며, G1·G2·G3·G6의 조건과 판정자의 참고 대조로 확인한다.
+
+적용 화면(예시): my-assets, asset-detail, admin-review, submission. 그 외 화면은 "해당 없음"으로 통과.
 
 | 검사 | 위반 기준 | 근거 |
 | --- | --- | --- |
-| 개인정보·기밀·저작권 | 자산 등록·판매 신청 화면에 "개인정보·고객정보·회사기밀·저작권 없음" 확인 항목이 없음 | 금지 규칙 1 |
-| 공개 범위 기본값 | 자산 등록 화면의 공개 범위 기본값이 "비공개"가 아님 | 금지 규칙 2 |
-| 판매 신청 노출 | "판매 신청" 옵션이 판매 승인 회원(seller) 화면 밖에 보임 | 금지 규칙 2, PRD 7-4 |
+| 개인정보·기밀·저작권 | 자산 등록·판매 신청 화면에 "개인정보·고객정보·회사기밀·저작권 없음" 확인 항목이 없음 | 프로젝트 금지 규칙 1 |
+| 공개 범위 기본값 | 자산 등록 화면의 공개 범위 기본값이 "비공개"가 아님 | 프로젝트 금지 규칙 2 |
+| 판매 신청 노출 | "판매 신청" 옵션이 판매 승인 회원(seller) 화면 밖에 보임 | 프로젝트 금지 규칙 2, PRD 7-4 |
 
 ## 사람 승인 지점 (1곳)
 

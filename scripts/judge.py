@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""G4(design.md 위반)·G5(story-service.md 금지 규칙 위반) 판정. 읽기 전용: 어떤 파일도 수정하지 않는다.
+"""G4(design.md 위반)·G5(프로젝트 금지 규칙 위반) 판정. 읽기 전용: 어떤 파일도 수정하지 않는다.
 
 사용:  python3 scripts/judge.py work/<화면>/design/frames.json [--gate G4|G5|all] [--expect-directions N]
 종료 코드: 0 통과 / 1 위반 있음 / 2 입력 오류(판정 불가)

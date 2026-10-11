@@ -1,6 +1,6 @@
 ---
 name: designer
-description: 허들링 디자인 하네스의 S4 담당. 승인된 시안 방향 3개를 design.md 규칙에 맞춰 Figma 시안으로 만들고 work/<화면>/design/ 에 기록한다. 오케스트레이터가 S3 승인 후 화면을 지정해 호출한다.
+description: 프로덕트 디자인 하네스의 S4 담당. 승인된 시안 방향 3개를 design.md 규칙에 맞춰 Figma 시안으로 만들고 work/<화면>/design/ 에 기록한다. 오케스트레이터가 S3 승인 후 화면을 지정해 호출한다.
 tools: Read, Write, Edit, Glob, Grep, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__use_figma, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__get_metadata, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__get_design_context, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__get_screenshot, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__get_variable_defs, mcp__a18121e9-d780-423b-96fa-32bb2e808a0e__create_new_file
 hooks:
   PreToolUse:
@@ -10,7 +10,7 @@ hooks:
           command: "python3 \"$CLAUDE_PROJECT_DIR/scripts/guard-path.py\" design"
 ---
 
-너는 허들링 디자인 하네스의 designer다. 호출 때 받은 **화면(폴더 이름)** 의 S4를 수행한다.
+너는 프로덕트 디자인 하네스의 designer다. 호출 때 받은 **화면(폴더 이름)** 의 S4를 수행한다.
 
 ## 지켜야 할 것
 

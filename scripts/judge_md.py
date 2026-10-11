@@ -122,7 +122,7 @@ def judge_g1(path):
 
     info.append(f"유지 {counts['유지']}개, 변경 {counts['변경']}개, 질문 {len(q_rows)}개")
     info.append("근거 유형: " + ", ".join(f"{k} {n}" for k, n in kind_counts.items()))
-    info.append(f"가정으로 채운 답변 {assumed}개 / 하이서가 확인한 답변 {len(answered) - assumed}개")
+    info.append(f"가정으로 채운 답변 {assumed}개 / PM이 확인한 답변 {len(answered) - assumed}개")
     return v, info
 
 
@@ -293,7 +293,7 @@ def judge_g6(path):
 
     info.append(f"최종 방향 {picks[0] if picks else '?'}, 최종 프레임 {ids[0] if ids else '?'}, 검토 의견 {review_human}개")
     if review_human == 0:
-        info.append("주의: 검토 의견이 0개다. 하이서·개발자의 검토가 실제로 없었다는 뜻이다 (조건은 충족하지만 사람 검토는 0회)")
+        info.append("주의: 검토 의견이 0개다. PM·개발자의 검토가 실제로 없었다는 뜻이다 (조건은 충족하지만 사람 검토는 0회)")
     return v, info
 
 

@@ -14,7 +14,7 @@ submission, my-learning, my-assets, asset-detail, admin-review
 
 | 단계 | 파일 (work/<화면>/ 기준) | 담는 것 | 쓰는 에이전트 |
 | --- | --- | --- | --- |
-| S1 | research/01-scope.md | 유지·변경 영역, 질문 목록, 하이서 답변 | researcher |
+| S1 | research/01-scope.md | 유지·변경 영역, 질문 목록, PM 답변 | researcher |
 | S2 | research/02-research.md | 사례 조사, 패턴·전략 분류 | researcher |
 | S3 | research/03-directions.md | 시안 방향 3개 (정보 우선순위, UX 전략) | researcher |
 | S4 | design/04-figma.md | 방향별 Figma 파일 URL과 프레임 ID | designer |
@@ -23,7 +23,7 @@ submission, my-learning, my-assets, asset-detail, admin-review
 | S5 | review/05-final.md | 최종 화면의 Figma 프레임, 최종 방향 | reviewer |
 | S5 | review/05-dev-guide.md | 개발 가이드 | reviewer |
 | S5 | review/frames.json | 최종 화면의 판정용 값 (G5 입력, 방향 1개) | reviewer |
-| 공통 | state.json | 현재 단계, 완료한 단계, 시도 횟수, 하이서 답변 대기 여부, S3 승인 여부 | 오케스트레이터 |
+| 공통 | state.json | 현재 단계, 완료한 단계, 시도 횟수, PM 답변 대기 여부, S3 승인 여부 | 오케스트레이터 |
 
 Figma 시안은 Figma 파일 안에 있고, md에는 URL과 프레임 ID만 기록한다.
 
@@ -32,13 +32,13 @@ Figma 시안은 Figma 파일 안에 있고, md에는 URL과 프레임 ID만 기�
 - 시각 규칙의 단일 기준은 design.md 하나다.
 - 판정 스크립트는 design.md에서 허용 색·radius·spacing을 직접 읽는다.
   rules.json 같은 복사본은 만들지 않는다.
-- 어기면 안 되는 것(story-service.md)은 gates.md의 G5 조건으로 쓴다.
+- 프로젝트별 금지 규칙은 gates.md의 G5 표에 쓴다. story-service.md의 "어기면 안 되는 것"은 하네스 공통 규칙이다.
 
 ## 재개
 
 - 중간에 멈췄다가 이어서 할 수 있다.
 - 어디까지 했는지는 state.json과 각 단계 파일의 존재로 판단한다.
-- S1에서 하이서 답변을 기다리는 중이면 state.json에 대기 상태를 기록하고,
+- S1에서 PM 답변을 기다리는 중이면 state.json에 대기 상태를 기록하고,
   답변이 오면 S1부터 이어간다.
 
 ## 되돌아갈 때

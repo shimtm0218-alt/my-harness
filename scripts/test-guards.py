@@ -89,7 +89,7 @@ with tempfile.TemporaryDirectory() as w:
     check("S2를 S1 전에 시작하면 거부", S("start", "S2")[0] == 1)
     check("S1 시작", S("start", "S1")[0] == 0)
     check("S1을 running에서 다시 시작하면 거부", S("start", "S1")[0] == 1)
-    check("S1 하이서 답변 대기", S("wait", "S1", "--for", "하이서 답변")[0] == 0)
+    check("S1 PM 답변 대기", S("wait", "S1", "--for", "PM 답변")[0] == 0)
     check("대기 중에는 S2 시작 거부", S("start", "S2")[0] == 1)
     check("S1 통과", S("pass", "S1")[0] == 0)
     check("S2 시작·통과", S("start", "S2")[0] == 0 and S("pass", "S2")[0] == 0)

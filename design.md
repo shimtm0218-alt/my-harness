@@ -1,6 +1,6 @@
 ## Overview
 
-Huddling (허들링) is an AI practice lab and asset library — learning materials, skill/prompt cards, and member-made assets — and its own interface is engineered to get out of the way. The system is strictly monochrome: near-black ink (`{colors.ink}` — #141414) on a pure white canvas (`{colors.canvas}`), with structure carried by a ladder of barely-perceptible neutral tints rather than by shadows or color. The learning content, skill cards, example outputs, and member assets the app exists to show are the only saturated elements on any page — the chrome frames them the way a gallery wall frames paintings.
+This design system is for a content and asset library product — learning materials, skill/prompt cards, and member-made assets — and its own interface is engineered to get out of the way. The system is strictly monochrome: near-black ink (`{colors.ink}` — #141414) on a pure white canvas (`{colors.canvas}`), with structure carried by a ladder of barely-perceptible neutral tints rather than by shadows or color. The learning content, skill cards, example outputs, and member assets the app exists to show are the only saturated elements on any page — the chrome frames them the way a gallery wall frames paintings.
 
 The geometry does the brand work that color refuses to do. Every interactive element is a stadium pill (`{rounded.full}`): the floating navigation bar, every button, the segmented billing toggle, the overlay badges. Containers sit at a calm `{rounded.md}` (24px), media tiles at `{rounded.sm}` (16px), and app icons render as iOS-style squircles at 30% corner radius. Type is set in Pretendard with strong weight contrast — Bold 700 for every heading, Regular 400 for text, Light 300 for lead subtitles — which gives the monochrome pages a strong typographic voice without a single decorative flourish.
 
@@ -22,7 +22,7 @@ Source pages: home, pricing, awards, signup.
 
 ### Brand & Accent
 
-- **Ink Black** (`{colors.primary}` — #141414): The brand color. Fills every primary CTA pill, the footer band, and all display typography. Huddling's identity is this near-black, softened just off pure black to sit comfortably next to photography.
+- **Ink Black** (`{colors.primary}` — #141414): The brand color. Fills every primary CTA pill, the footer band, and all display typography. The product's identity is this near-black, softened just off pure black to sit comfortably next to photography.
 - **Electric Blue** (`{colors.accent}` — #0066ff): The only chromatic accent in the system. Reserved for commercial emphasis — the "Popular" pricing badge and savings callouts. Never used decoratively, never used for CTAs.
 
 ### Surface
@@ -177,7 +177,7 @@ The system is essentially shadow-free: no drop shadows appear on any card, butto
 - Fill `{colors.canvas}`, label `{colors.ink}`, 1px `{colors.hairline}` border, shape `{rounded.full}`
 - The de-emphasized twin of the primary pill; used when two actions sit side by side or for third-party auth
 
-**`button-pill-soft`** — "Explore ↗", "Huddling ↗", "Read more"
+**`button-pill-soft`** — "Explore ↗", "Home ↗", "Read more"
 
 - Fill `{colors.canvas-soft}`, label `{colors.ink}`, shape `{rounded.full}`
 - Tertiary utility pill for outbound and in-page links; no border, relies on its tint fill
@@ -232,7 +232,7 @@ The system is essentially shadow-free: no drop shadows appear on any card, butto
 
 **Sub-nav (Awards)**
 
-- Minimal corner marks instead of a bar: logomark + section name top-left, a `button-pill-soft` "Huddling ↗" return link top-right
+- Minimal corner marks instead of a bar: logomark + section name top-left, a `button-pill-soft` "Home ↗" return link top-right
 
 ### Signature Components
 

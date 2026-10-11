@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-DOCS = ["prd.md", "design.md", "story-service.md", "story-work.md", "harness-goal.md",
+DOCS = ["design.md", "story-service.md", "story-work.md", "harness-goal.md",
         "pipeline.md", "artifacts.md", "gates.md", "roles.md", "CLAUDE.md", "verification.md"]
 SCREENS = ["home", "free-learning", "paid-library", "skill-library", "mission-detail",
            "submission", "my-learning", "my-assets", "asset-detail", "admin-review"]
@@ -24,7 +24,7 @@ def read(name):
 
 # 1. 문서가 모두 있다
 missing = [d for d in DOCS if not (ROOT / d).exists()]
-check("문서 11개가 모두 있다", not missing, f"없음: {missing}" if missing else "")
+check("하네스 문서 10개가 모두 있다", not missing, f"없음: {missing}" if missing else "")
 
 design, gates, artifacts, roles = read("design.md"), read("gates.md"), read("artifacts.md"), read("roles.md")
 pipeline, claude, service = read("pipeline.md"), read("CLAUDE.md"), read("story-service.md")
@@ -60,14 +60,15 @@ spacing_gate = {int(n) for n in re.findall(r"\d+", spacing_gate_line.split("|")[
 check("spacing 허용 목록이 design.md와 같다", spacing_design == spacing_gate,
       f"design={sorted(spacing_design)} gates={sorted(spacing_gate)}")
 
-# 5. 게이트 6개, 단계 5개, 금지 규칙 2개
+# 5. 게이트 6개, 단계 5개, 어기면 안 되는 것 1~2개
 gate_ids = set(re.findall(r"^\| (G\d) ", gates, re.M))
 check("gates.md: 게이트 G1~G6", gate_ids == {f"G{i}" for i in range(1, 7)}, f"{sorted(gate_ids)}")
 stage_ids = set(re.findall(r"^\| (S\d) ", pipeline, re.M))
 check("pipeline.md: 단계 S1~S5", stage_ids == {f"S{i}" for i in range(1, 6)}, f"{sorted(stage_ids)}")
-rules = re.findall(r"^\d+\. ", service.split("## 이 서비스에서 어기면 안 되는 것")[-1], re.M)
+m = re.search(r"^## (?:이 서비스에서 )?어기면 안 되는 것\n(.*?)(?=^## |\Z)", service, re.M | re.S)
+rules = re.findall(r"^\d+\. ", m.group(1), re.M) if m else []
 check("story-service.md: 어기면 안 되는 것 1~2개", 1 <= len(rules) <= 2, f"{len(rules)}개")
-check("G5가 금지 규칙 1과 2를 모두 참조한다", "금지 규칙 1" in gates and "금지 규칙 2" in gates)
+check("G5가 프로젝트 금지 규칙을 명시하고 규칙 표가 있다", "## G5: 프로젝트 금지 규칙" in gates and "프로젝트 금지 규칙 1" in gates and "프로젝트 금지 규칙 2" in gates)
 
 # 6. 화면 이름 10개가 artifacts.md와 roles.md에서 같다
 art_missing = [s for s in SCREENS if s not in artifacts]
@@ -85,7 +86,8 @@ folders_ok = all(f"work/<화면>/{d}/" in roles for d in ("research", "design", 
 check("roles.md의 편집 폴더가 research/design/review", folders_ok)
 
 # 8. CLAUDE.md가 참조하는 문서가 실제로 있다
-refs = set(re.findall(r"\b([a-z-]+\.md)\b", claude)) - {"CLAUDE.md"}
+PROJECT_INPUTS = {"prd.md"}  # 프로젝트마다 넣는 입력. 저장소에는 두지 않는다
+refs = set(re.findall(r"\b([a-z-]+\.md)\b", claude)) - {"CLAUDE.md"} - PROJECT_INPUTS
 missing_refs = sorted(r for r in refs if not (ROOT / r).exists())
 check("CLAUDE.md가 참조하는 md가 모두 존재", not missing_refs, f"없음: {missing_refs}" if missing_refs else "")
 
